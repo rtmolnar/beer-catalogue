@@ -1,4 +1,4 @@
-package com.hauffe.test.beer.catalogue;
+package com.haufe.test.beer.catalogue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
