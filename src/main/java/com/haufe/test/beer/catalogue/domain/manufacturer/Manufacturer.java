@@ -17,4 +17,16 @@ public class Manufacturer {
   @Column(nullable = false)
   @NotNull(message = "Manufacturer nationality can not be null!")
   private String nationality;
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getNationality() {
+    return nationality;
+  }
 }

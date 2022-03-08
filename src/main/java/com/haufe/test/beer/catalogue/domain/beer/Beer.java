@@ -38,4 +38,31 @@ public class Beer {
   @ManyToOne(fetch = FetchType.EAGER)
   private Manufacturer manufacturer;
 
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public BeerType getType() {
+    return type;
+  }
+
+  public Double getGraduation() {
+    return graduation;
+  }
+
+  public LocalDate getFabricationDate() {
+    return fabricationDate;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public Manufacturer getManufacturer() {
+    return manufacturer;
+  }
 }
