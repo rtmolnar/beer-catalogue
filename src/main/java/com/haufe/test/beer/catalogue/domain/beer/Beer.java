@@ -38,7 +38,8 @@ public class Beer {
   @ManyToOne(fetch = FetchType.EAGER)
   private Manufacturer manufacturer;
 
-  public Beer() {}
+  public Beer() {
+  }
 
   public Beer(String name, BeerType type, Double graduation, LocalDate fabricationDate, String description, Manufacturer manufacturer) {
     this.name = name;
@@ -53,27 +54,55 @@ public class Beer {
     return id;
   }
 
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public BeerType getType() {
     return type;
   }
 
+  public void setType(BeerType type) {
+    this.type = type;
+  }
+
   public Double getGraduation() {
     return graduation;
+  }
+
+  public void setGraduation(Double graduation) {
+    this.graduation = graduation;
   }
 
   public LocalDate getFabricationDate() {
     return fabricationDate;
   }
 
+  public void setFabricationDate(LocalDate fabricationDate) {
+    this.fabricationDate = fabricationDate;
+  }
+
   public String getDescription() {
     return description;
   }
 
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   public Manufacturer getManufacturer() {
     return manufacturer;
+  }
+
+  public void setManufacturer(Manufacturer manufacturer) {
+    this.manufacturer = manufacturer;
   }
 }

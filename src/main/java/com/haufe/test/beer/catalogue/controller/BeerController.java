@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,16 @@ public class BeerController {
     return beerService.getBeerList(pagination);
   }
 
+  @GetMapping("/id/{id}")
+  public ResponseEntity<BeerDTO> getBeerById(@PathVariable Long id){
+    return ResponseEntity.ok(beerService.getById(id));
+  }
+
+  @GetMapping("/name/{name}")
+  public ResponseEntity<BeerDTO> getBeerByName(@PathVariable String name){
+    return ResponseEntity.ok(beerService.getByName(name));
+  }
+
   @PostMapping
   @Transactional
   public ResponseEntity<BeerDTO> create(
@@ -40,5 +51,18 @@ public class BeerController {
     BeerDTO beerDTO = beerService.create(beerForm);
     URI uri = uriBuilder.path("/beers/${beerDTO.id}").build().toUri();
     return ResponseEntity.created(uri).body(beerDTO);
+  }
+
+  @PutMapping
+  @Transactional
+  public ResponseEntity<BeerDTO> update( @RequestBody @Valid BeerDTO beerDTO){
+    BeerDTO beerDTOUpdate =  beerService.update(beerDTO);
+    return ResponseEntity.ok(beerDTOUpdate);
+  }
+
+  @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void delete(@PathVariable Long id){
+    beerService.delete(id);
   }
 }

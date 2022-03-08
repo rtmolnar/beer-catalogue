@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "5cc964d5-2a48-483b-bf0f-63dd1dd2045b",
+		"name": "haufe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "beer-get-all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/beers",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"beers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beer-get-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/beers/id/2",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"beers",
+						"id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beer-get-by-name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/beers/name/test",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"beers",
+						"name",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beer-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test name\",\n    \"type\": \"IPA\",\n    \"graduation\": 5,\n    \"fabricationDate\": \"2022-01-08\",\n    \"description\": \"This is a test description.\",\n    \"manufacturerId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api-url}}/beers",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"beers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beer-update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"test\",\n    \"type\": \"IPA\",\n    \"graduation\": 5,\n    \"fabricationDate\": \"2022-01-08\",\n    \"description\": \"This is a test description.\",\n    \"manufacturerId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api-url}}/beers",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"beers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beer-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/beers/1",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"beers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

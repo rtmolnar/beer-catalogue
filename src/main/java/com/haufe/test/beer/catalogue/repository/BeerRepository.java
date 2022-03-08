@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface BeerRepository extends JpaRepository<Beer, Long> {
 
   Page<Beer> findAll(Pageable pagination);
+
+  Beer findByName(String name);
 }
