@@ -18,6 +18,14 @@ public class Manufacturer {
   @NotNull(message = "Manufacturer nationality can not be null!")
   private String nationality;
 
+  public Manufacturer() {}
+
+  public Manufacturer(Long id, String name, String nationality) {
+    this.id = id;
+    this.name = name;
+    this.nationality = nationality;
+  }
+
   public Long getId() {
     return id;
   }
@@ -29,4 +37,6 @@ public class Manufacturer {
   public String getNationality() {
     return nationality;
   }
+
+
 }
