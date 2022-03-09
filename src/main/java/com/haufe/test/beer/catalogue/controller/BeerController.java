@@ -25,7 +25,7 @@ public class BeerController {
   private BeerService beerService;
 
   @GetMapping
-  public Page<BeerDTO> getBeerList(
+  public Page<BeerDTO> getList(
 //      TODO: check why default sort param is not working
       @PageableDefault(size = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pagination
   ) {
@@ -33,12 +33,12 @@ public class BeerController {
   }
 
   @GetMapping("/id/{id}")
-  public ResponseEntity<BeerDTO> getBeerById(@PathVariable Long id){
-    return ResponseEntity.ok(beerService.getById(id));
+  public ResponseEntity<BeerDTO> getById(@PathVariable Long id){
+    return ResponseEntity.ok(beerService.getDTOById(id));
   }
 
   @GetMapping("/name/{name}")
-  public ResponseEntity<BeerDTO> getBeerByName(@PathVariable String name){
+  public ResponseEntity<BeerDTO> getByName(@PathVariable String name){
     return ResponseEntity.ok(beerService.getByName(name));
   }
 

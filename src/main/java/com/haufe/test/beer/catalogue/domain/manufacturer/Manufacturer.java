@@ -20,8 +20,7 @@ public class Manufacturer {
 
   public Manufacturer() {}
 
-  public Manufacturer(Long id, String name, String nationality) {
-    this.id = id;
+  public Manufacturer(String name, String nationality) {
     this.name = name;
     this.nationality = nationality;
   }
@@ -30,13 +29,23 @@ public class Manufacturer {
     return id;
   }
 
+  public void setId(Long id) {
+    this.id = id;
+  }
+
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getNationality() {
     return nationality;
   }
 
-
+  public void setNationality(String nationality) {
+    this.nationality = nationality;
+  }
 }

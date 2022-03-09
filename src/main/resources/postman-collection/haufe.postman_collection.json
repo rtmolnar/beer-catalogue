@@ -129,6 +129,132 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "manufacturer-get-all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/manufacturers",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"manufacturers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manufacturer-get-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/manufacturers/id/1",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"manufacturers",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manufacturer-delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/manufacturers/id/1",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"manufacturers",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manufacturer-get-by-name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/manufacturers/name/Duvel",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"manufacturers",
+						"name",
+						"Duvel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manufacturer-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Soma\",\n    \"nationality\": \"Spanish\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api-url}}/manufacturers",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"manufacturers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "manufacturer-create Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\": \"Soma Updated\",\n    \"nationality\": \"Spanish\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api-url}}/manufacturers",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"manufacturers"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
