@@ -1,4 +1,11 @@
 
+insert into profile (id, name) values (1, 'admin');
+
+insert into user (id, username, password) values (1, 'admin', '$2a$10$Q1hueFjGCfd1/2a6aptMeudtKMiSV8FhCHhafx2a8TkyCIIP3GcY6');
+
+insert into user_profiles (user_id, profiles_id) values (1, 1);
+
+
 insert into manufacturer(id, name, nationality) values (1, 'Duvel', 'Belgian');
 
 insert into beer (
