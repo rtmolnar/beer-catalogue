@@ -1,8 +1,9 @@
 package com.haufe.test.beer.catalogue.controller;
 
+import com.haufe.test.beer.catalogue.domain.beer.Beer;
+import com.haufe.test.beer.catalogue.domain.beer.BeerDTO;
 import com.haufe.test.beer.catalogue.domain.beer.BeerForm;
 import com.haufe.test.beer.catalogue.service.BeerService;
-import com.haufe.test.beer.catalogue.domain.beer.BeerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,6 +11,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -25,7 +28,7 @@ public class BeerController {
   private BeerService beerService;
 
   @GetMapping
-  public Page<BeerDTO> getList(
+  public Page<Beer> getList(
 //      TODO: check why default sort param is not working
       @PageableDefault(size = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pagination
   ) {
@@ -33,36 +36,55 @@ public class BeerController {
   }
 
   @GetMapping("/id/{id}")
-  public ResponseEntity<BeerDTO> getById(@PathVariable Long id){
+  public ResponseEntity<Beer> getById(@PathVariable Long id){
     return ResponseEntity.ok(beerService.getDTOById(id));
   }
 
   @GetMapping("/name/{name}")
-  public ResponseEntity<BeerDTO> getByName(@PathVariable String name){
+  public ResponseEntity<Beer> getByName(@PathVariable String name){
     return ResponseEntity.ok(beerService.getByName(name));
+  }
+
+  @GetMapping("/attributes")
+  public Page<Beer> getByAttributes(
+      @RequestParam(required = false) String name,
+      @RequestParam(required = false) String type,
+      @RequestParam(required = false) Float graduation,
+      @RequestParam(required = false) String fabricationDate,
+      @RequestParam(required = false) String description,
+      @RequestParam(required = false) String manufacturerName,
+      @PageableDefault(size = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pagination
+  ){
+    return beerService.getBeerListByAttributes(
+        name,
+        type,
+        graduation,
+        fabricationDate,
+        description,
+        manufacturerName,
+        pagination);
   }
 
   @PostMapping
   @Transactional
-  public ResponseEntity<BeerDTO> create(
+  public ResponseEntity<Beer> create(
       @RequestBody @Valid BeerForm beerForm,
       UriComponentsBuilder uriBuilder
   ){
-    BeerDTO beerDTO = beerService.create(beerForm);
-    URI uri = uriBuilder.path("/beers/${beerDTO.id}").build().toUri();
-    return ResponseEntity.created(uri).body(beerDTO);
+    Beer beer = beerService.create(beerForm);
+    URI uri = uriBuilder.path("/beers/${beer.id}").build().toUri();
+    return ResponseEntity.created(uri).body(beer);
   }
 
   @PutMapping
   @Transactional
-  public ResponseEntity<BeerDTO> update( @RequestBody @Valid BeerDTO beerDTO){
-    BeerDTO beerDTOUpdate =  beerService.update(beerDTO);
-    return ResponseEntity.ok(beerDTOUpdate);
+//  @PostAuthorize("#returnObject.manufacturer.name == authentication.principal.username")
+  public ResponseEntity<Beer> update( @RequestBody @Valid BeerDTO beerDTO){
+    Beer beerUpdate =  beerService.update(beerDTO);
+    return ResponseEntity.ok(beerUpdate);
   }
 
   @DeleteMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void delete(@PathVariable Long id){
-    beerService.delete(id);
-  }
+  public void delete(@PathVariable Long id){ beerService.delete(id); }
 }
