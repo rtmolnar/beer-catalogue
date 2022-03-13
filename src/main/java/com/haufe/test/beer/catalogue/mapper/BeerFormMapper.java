@@ -16,12 +16,12 @@ public class BeerFormMapper implements Mapper<BeerForm, Beer> {
   public Beer map(BeerForm beerForm) {
 
     return new Beer(
-        beerForm.getName(),
-        beerForm.getType(),
-        beerForm.getGraduation(),
-        beerForm.getFabricationDate(),
-        beerForm.getDescription(),
-        manufacturerService.getById(beerForm.getManufacturerId())
+      beerForm.getName(),
+      beerForm.getType(),
+      beerForm.getGraduation(),
+      beerForm.getFabricationDate(),
+      beerForm.getDescription(),
+      manufacturerService.getById(beerForm.getManufacturerId())
     );
   }
 }
