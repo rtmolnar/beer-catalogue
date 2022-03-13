@@ -151,7 +151,6 @@ public class BeerService {
   }
 
   public Beer getById(Long id) {
-    //    TODO: implement notFoundException
     return beerRepository.findById(id).get();
   }
 

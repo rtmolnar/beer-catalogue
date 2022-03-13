@@ -20,7 +20,7 @@ insert into beer (
 )
 values
   (
-    1, 'Duvel 666', 'BLOND', 6.66, now(),
+    1, 'Duvel', 'BLOND', 6.6, now(),
     'The sunny, warm yellow design of the bottles already suggests it. This Duvel is mild, expressive and deliciously drinkable.',
     1
   );
@@ -31,7 +31,7 @@ insert into beer (
 )
 values
   (
-    2, 'Duvel Tripple Hop Citra', 'IPA', 9.5, now(),
-    'For Duvel Tripel Hop we use the aromatic hop called Citra. This aromatic third hop is grown in the Yakima Valley in Washington and enriches the flavor palate with fresh hints of grapefruit and tropical fruit.',
+    2, 'Vedett', 'IPA', 5.5, now(),
+    'Fresh, fruity and floral notes give way to touches of caramel sweetness, while its superb, lingering aftertaste continues to tantalise the tastebuds long after. Here’s to a great-tasting, refreshing beer!',
     1
   );
