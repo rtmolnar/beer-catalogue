@@ -8,6 +8,9 @@
 		{
 			"name": "beer-get-all",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -17,6 +20,33 @@
 					],
 					"path": [
 						"beers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "beer-get-by-attributes",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}/beers/attributes?type=BLOND",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"beers",
+						"attributes"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "BLOND"
+						}
 					]
 				}
 			},
@@ -63,6 +93,16 @@
 		{
 			"name": "beer-create",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiZWVyIGNhdGFsb2d1ZSBBUEkiLCJzdWIiOiIxIiwiaWF0IjoxNjQ3MTI0ODUzLCJleHAiOjE2NDcyMTEyNTN9.uR3dc5JCzK-8UTYyazJFSEyVPtmOUZel23ZlXL6EHp0",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -89,11 +129,21 @@
 		{
 			"name": "beer-update",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiZWVyIGNhdGFsb2d1ZSBBUEkiLCJzdWIiOiIzIiwiaWF0IjoxNjQ3MTI3MTM2LCJleHAiOjE2NDcyMTM1MzZ9.5B0cm2PRMC8GiVR3MSHy4v4QLEO3byw-MLLufK8fDpc",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": 1,\n    \"name\": \"test\",\n    \"type\": \"IPA\",\n    \"graduation\": 5,\n    \"fabricationDate\": \"2022-01-08\",\n    \"description\": \"This is a test description.\",\n    \"manufacturerId\": 1\n}",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"test update\",\n    \"type\": \"IPA\",\n    \"graduation\": 5,\n    \"fabricationDate\": \"2022-01-08\",\n    \"description\": \"This is a test description.\",\n    \"manufacturerId\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -251,6 +301,32 @@
 					],
 					"path": [
 						"manufacturers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authentication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"admin\",\n    \"password\": 12345\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api-url}}/auth",
+					"host": [
+						"{{api-url}}"
+					],
+					"path": [
+						"auth"
 					]
 				}
 			},
