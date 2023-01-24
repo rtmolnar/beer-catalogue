@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "5cc964d5-2a48-483b-bf0f-63dd1dd2045b",
-		"name": "haufe",
+		"name": "beer-catalog",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -9,7 +9,14 @@
 			"name": "beer-get-all",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiZWVyIGNhdGFsb2d1ZSBBUEkiLCJzdWIiOiIxIiwiaWF0IjoxNjc0NTkzOTkxLCJleHAiOjE2NzQ2ODAzOTF9.0b-8scLO7H5fDTRw5TRX5s5pp-_bjOSvnG-zHsw7a0k",
+							"type": "string"
+						}
+					]
 				},
 				"method": "GET",
 				"header": [],

@@ -2,16 +2,6 @@
 # beer-catalogue
 JAVA BACK END DEVELOPER TEST
 
-**Considerations**
-Due to the lack of time I couldn't implement everything I wanted. The project lacks error treatment, logging, a much more test coverage and a more elaborated postman script but again, this is what I had time to implement. I hope you like it :)
-
----
-
-**To be aware of**
-There is a postman collection in the project in the folder `resources/postman-collection`, it can be used to test the application.
-
-Please note that the postman collection doesn't have pre-request scripts so you will have to manually copy and past the bearer token into the requests header that needs it. Please add a bearer token authentication and paste there the return of the authentication endpoint.
-
 ---
 
 **How to run**
