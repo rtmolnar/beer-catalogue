@@ -27,7 +27,6 @@ public class BeerController {
 
   @GetMapping
   public Page<Beer> getList(
-//      TODO: check why default sort param is not working
       @PageableDefault(size = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pagination
   ) {
     return beerService.getBeerList(pagination);
